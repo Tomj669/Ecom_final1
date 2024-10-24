@@ -1,7 +1,7 @@
 var headtext='Sale ends today'
 var partext='Start exploring new possibilities for your future. Learn from just ₹449 now.'
 
-const heroData=[{"headtext":'Sale ends today','partext':'Start exploring new possibilities for your future. Learn from just ₹449 now','image':'./src/assets/hero1.jpg','imageMob':'./src/assets/hero1_mob.jpg'},
+const heroData=[{"headtext":'Sale ends today','partext':'Start exploring new possibilities for your future. Learn from just ₹449 now','image':'./public/hero1.jpg','imageMob':'./src/assets/hero1_mob.jpg'},
 {"headtext":'Skills that drive you forward','partext':'Technology and the world of work change fast with us, you’re faster. Get the skills to achieve goals and stay competitive.','image':'./src/assets/hero2.jpg','imageMob':'./src/assets/hero2_mob.png'}]
 
 import {ChevronLeft, ChevronRight} from 'lucide-react'
@@ -9,7 +9,7 @@ import { Button } from "./components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from 'react'
 export default function Hero(){
-  var pic=["./src/assets/hero3.jpg","./src/assets/hero2.png"]
+  var pic=["./public/hero3.jpg","./src/assets/hero2.png"]
   const [index,setIndex] =useState(0)
 
 
