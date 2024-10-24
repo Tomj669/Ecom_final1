@@ -75,7 +75,7 @@ export default function SearchedCourse() {
   return (
     <div className="mb-20">
         <div className="text-[35px] font-bold ml-4">
-    Because you searched for  <span className="text-blue-800"> "Electric Guitar "</span>
+    Because you searched for  <span className="text-blue-800"> " Guitar "</span>
   </div>
  
   <Carousel className="w-full px-2 ">
