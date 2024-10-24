@@ -17,7 +17,7 @@ import CartPage from './CartPage'
 import CreateCourse from './CreateCourse'
 import Instructor from './Instructor'
 
-import ReduxTest from './ReduxTest'
+
 
 
 function App() {
