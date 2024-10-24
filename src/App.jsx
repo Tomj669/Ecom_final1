@@ -38,7 +38,6 @@ function App() {
           <Route path='/cart' element={<CartPage/>}/>
           <Route path='/createcourse' element={<CreateCourse/>}/>
           <Route path='/instructor' element={<Instructor/>}/>
-          <Route path='/test' element={<ReduxTest/>}/>
          
         </Routes>
         </div>
