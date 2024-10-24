@@ -21,7 +21,7 @@ export default function Hero(){
 
            <div className="relative  max-md:hidden overflow-hidden">
         <img
-          src={heroData[index].image}
+          src='images/hero.jpg'
           alt="Hero image"
           className="w-full h-auto"
         />
