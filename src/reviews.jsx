@@ -75,7 +75,7 @@ export default function Reviews() {
   return (
     <div className="mb-20">
         <div className="text-[35px] font-bold ml-4">
-    Reviews from our <span className="text-purple-800"> Learners</span>
+    Reviews from our <span className="text-purple-800"> OK bro </span>
   </div>
  
   <Carousel className="w-full px-2 ">
