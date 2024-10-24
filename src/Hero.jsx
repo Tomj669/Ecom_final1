@@ -1,7 +1,7 @@
 var headtext='Sale ends today'
 var partext='Start exploring new possibilities for your future. Learn from just ₹449 now.'
 
-const heroData=[{"headtext":'Sale ends today','partext':'Start exploring new possibilities for your future. Learn from just ₹449 now','image':'public/hero.jpg','imageMob':'./src/assets/hero_mob.jpg'},
+const heroData=[{"headtext":'Sale ends today','partext':'Start exploring new possibilities for your future. Learn from just ₹449 now','image':'../public/hero.jpg','imageMob':'./src/assets/hero_mob.jpg'},
 {"headtext":'Skills that drive you forward','partext':'Technology and the world of work change fast with us, you’re faster. Get the skills to achieve goals and stay competitive.','image':'./src/assets/hero2.jpg','imageMob':'./src/assets/hero2_mob.png'}]
 
 import {ChevronLeft, ChevronRight} from 'lucide-react'
