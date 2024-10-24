@@ -31,7 +31,7 @@ export default function SearchPage(){
     }
   const searchTearm = 'React'
 
-    return(<div className="p-4 ">
+    return(<div className="p-4">
         
         <div className=" max-lg:ml-8  max-sm:ml-4 flex" > 
         
