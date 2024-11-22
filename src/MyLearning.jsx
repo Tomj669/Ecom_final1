@@ -11,7 +11,7 @@ export default function MyLearning(){
     const navigate = useNavigate()
 
     useEffect(()=>{ 
-        axios.get('http://localhost:7000/myLearnings',{
+        axios.get('http://localhost:7001/myLearnings',{
             headers:{ 
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImN5YmVyX2tuaWdodCIsImVtYWlsIjoiY3liZXJfa25pZ2h0QGV4YW1wbGUuY29tIiwidXNlcklkIjoiNjczMzdkYTQ3NTg5ZTY5OTY3YWU3MjRmIiwiaWF0IjoxNzMxNDc0MDE4fQ.UPlbJHNri-ESJ9_VZ7V8BZ6j09qqcdI7WrhKe7u7Ybo'
             }

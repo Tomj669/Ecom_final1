@@ -31,11 +31,11 @@ export default function SearchPage(){
  const  [data,setData]=useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:7000/courses/search?`+params)
+        axios.get(`http://localhost:7001/courses/search?`+params)
             .then((resp) => {
                 
-                if(JSON.stringify(resp.data)!=JSON.stringify(data)){ 
-                    setData(resp.data)
+                if(JSON.stringify(resp.data.results)!=JSON.stringify(data)){ 
+                    setData(resp.data.results)
                     
                 }
             })

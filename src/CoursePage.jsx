@@ -27,7 +27,7 @@ export default function CoursPage () {
 
     const {courseId} = useParams()
     useEffect(()=>{      
-        axios.get(`http://localhost:7000/course/${courseId}`).then((resp)=>(setData(resp.data)))
+        axios.get(`http://localhost:7001/course/${courseId}`).then((resp)=>(setData(resp.data)))
 
     },[courseId]) 
     console.log(courseId)

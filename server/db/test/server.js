@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 const app = express()
 import cors from 'cors'
-const port = 7000
+const port = 7001
 const SECRET = '123123'
 import  jwt from 'jsonwebtoken'
 import {Instructor, User,Course, Purchase, Review} from './testSchema.js'
@@ -111,9 +111,12 @@ app.post('/addcourse',async (req,res)=>{
     res.send('course added ! ') 
 })
 
- app.get('/courses/search' ,async(req,res)=>{
+app.get('/courses/search' ,async(req,res)=>{
   try {
     const {search,sortBy,order,category,minRating,maxRating,minPrice,maxPrice}= req.query;
+    const page =  parseInt(req.query.page)|| 1 
+    const limit = parseInt(req.query.limit)||10
+    const skip = (page - 1) * limit
     let filter = {}
     if(search){ 
       filter.$or=[
@@ -142,8 +145,10 @@ app.post('/addcourse',async (req,res)=>{
       if(sortBy){ 
         sortOptions[sortBy] = order === 'desc' ? -1 : 1 
       }
-    const courses = await Course.find(filter).sort(sortOptions).populate({path:"instructorId",select:"name"});
-    res.send(courses)
+    const courses = await Course.find(filter).sort(sortOptions).populate({path:"instructorId",select:"name"}).skip(skip).limit(limit);
+    const totalCount = await Course.countDocuments(filter)
+    res.json({"results":courses,"total results" : totalCount ,"total pages": Math.ceil(totalCount/limit)})
+
     console.log(filter,sortOptions)
     
   } catch (error) {

@@ -23,7 +23,7 @@ import axios from "axios"
 export default function Reviews() {
    const [reviewData,setReviewData] = useState([])
   useEffect(()=>{
-    axios.get('http://localhost:7000/reviews').then((resp)=>{
+    axios.get('http://localhost:7001/reviews').then((resp)=>{
      setReviewData(resp.data)
     })
 

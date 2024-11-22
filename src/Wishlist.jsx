@@ -5,7 +5,7 @@ export default function Wishlist(){
 const [data,setData]=useState()
 
 useEffect(()=>{
-    axios.get('http://localhost:7000/courses/search?search=python&sortBy=price')
+    axios.get('http://localhost:7001/courses/search?search=python&sortBy=price')
     .then((resp)=>{
         setData(resp.data) 
         console.log(data)    

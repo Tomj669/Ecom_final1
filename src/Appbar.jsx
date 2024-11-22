@@ -66,7 +66,7 @@ export default function Appbar(){
   ])
   
   useEffect(()=>{ 
-    axios.get('http://localhost:7000/')
+    axios.get('http://localhost:7001/')
     .then((resp) => {
       console.log(resp.data);
       setCategories(resp.data)

@@ -19,7 +19,7 @@ import {
             <PaginationLink href="#">1</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" isActive>
+            <PaginationLink href="#" >
               2
             </PaginationLink>
           </PaginationItem>

@@ -38,7 +38,7 @@ export default function TabWithCategories()
 
 
   useEffect(()=>{ 
-    axios.get('http://localhost:7000/')
+    axios.get('http://localhost:7001/')
     .then((resp) => {
       setCategories(resp.data)
       setSelectedTab(resp.data[0])
@@ -51,9 +51,9 @@ export default function TabWithCategories()
   },[])
 
   useEffect(()=>{
-    axios.get(`http://localhost:7000/courses/search?category=${selectedTab}`).then((resp)=>{
+    axios.get(`http://localhost:7001/courses/search?category=${selectedTab}`).then((resp)=>{
       
-        setData(resp.data)
+        setData(resp.data.results)
         
       
         console.log(selectedTab + " form ")
