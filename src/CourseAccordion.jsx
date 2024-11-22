@@ -12,17 +12,19 @@ const sections = [
   { title: "Conclusion and Next Steps", content: "A summary of the course and suggestions for further learning. Duration: 10m." }
 ]
 
-export default function CourseAccordion() {
+export default function CourseAccordion({data}) {
+  
   return (
+
     <div className='p-4 px-8'>
       <div className='font-bold text-[20px]'>Course content</div>
-      <div className='mb-4'>9 sections • 9 lectures • 1h 45m total length</div>
+      <div className='mb-4'>9 sections • 9 lectures • 1h 45m total length FROM BD</div>
       
-      <Accordion type="single" collapsible className="border border-b-0 px-4">
-        {sections.map((section, index) => (
+      <Accordion type="multiple" collapsible className="border border-b-0 px-4">
+        {data.map((section, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
             <AccordionTrigger className='font-bold'>{section.title}</AccordionTrigger>
-            <AccordionContent>{section.content}</AccordionContent>
+            <AccordionContent>{section.videoUrl}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

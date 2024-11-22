@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@radix-ui/react-avatar"
+import { Avatar, AvatarFallback } from './components/ui/avatar'
 import { Star } from "lucide-react"
 import ReviewStar from "./RatingStar"
 import { Button } from "./components/ui/button"
@@ -56,23 +56,24 @@ const reviews = [
   }
 ]
 
-export default function CourseReview() {
+export default function CourseReview({data,averageRating }) {
+  console.log(data)
   return (
     <div className='p-4 px-8'>
       <div className="flex text-base gap-2">
         <Star className="text-yellow-700" />
-        <div className="text-[25px] font-bold">4.6 course rating - 36 ratings</div>
+        <div className="text-[25px] font-bold">{averageRating} course rating - {data.length} ratings</div>
       </div>
 
       {/* Grid layout for reviews */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mb-4">
-        {reviews.slice(0,6).map((review, index) => (
+        {data.slice(0,6).map((review, index) => (
           <div key={index} className="border rounded-lg p-4 shadow-sm">
             <div className="flex items-center mb-2">
-              <Avatar className="mr-2">
-                <AvatarFallback>{review.username[0].toUpperCase()}</AvatarFallback>
+              <Avatar className="mr-2 bg-slate-800">
+                <AvatarFallback className="bg-gray-900 text-white font-bold text-2xl">{review.userId.username[0].toUpperCase()}</AvatarFallback>
               </Avatar>
-              <div className="font-bold">{review.username}</div>
+              <div className="font-bold">{review.userId.username}</div>
             </div>
             <ReviewStar data={review.rating} />
             <div className="mt-2 text-gray-700">{review.review}</div>

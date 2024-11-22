@@ -8,6 +8,7 @@ export default function CartPage(){
   const dispatch= useDispatch()
   const cart = useSelector((state)=>state.cart)
   const [cartData,setCartData]=useState(cart.items)
+  
 
     return(<div className=" w-full h-full flex justify-center max-md:block "> 
 <div>

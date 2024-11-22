@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SearchContent from "./SearchContent"
 import SearchMenu from "./SearchMenu"
 import { Button } from "./components/ui/button"
@@ -14,13 +14,35 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+
+  import axios from 'axios'
+import SearchCourseCard from "./SearchCourseCard"
   
 
 export default function SearchPage(){
     const location=useLocation();
     const params= new URLSearchParams(location.search)
-    const QQ=params.get('query')
-    console.log(QQ)
+
+   
+  
+
+
+
+ const  [data,setData]=useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:7000/courses/search?`+params)
+            .then((resp) => {
+                
+                if(JSON.stringify(resp.data)!=JSON.stringify(data)){ 
+                    setData(resp.data)
+                    
+                }
+            })
+            .catch((error) => {
+                console.log('Error searching for courses:', error)
+            })
+    }, [params]) 
 
     const [toggelFilter,setToggleFilter]=useState(1)
 
@@ -28,8 +50,11 @@ export default function SearchPage(){
         if(toggelFilter==0){
             setToggleFilter(1) 
         }else{ setToggleFilter(0)}
+        
+
+
     }
-  const searchTearm = 'React'
+ 
 
     return(<div className="p-4">
         
@@ -40,7 +65,7 @@ export default function SearchPage(){
             <MobileFilter  variant='ghost' > Filter </MobileFilter>
             <DropdownMenu>
             <DropdownMenuTrigger> <Button variant='ghost' className='border rounded-none ml-2 '> Sort by  </Button></DropdownMenuTrigger>
-            <div className="text-[25px] font-bold ml-[130px] max-md:hidden"> 100 reults for "{QQ}"</div>
+            <div className="text-[25px] font-bold ml-[130px] max-md:hidden"> {data.length} reults found"</div>
             <DropdownMenuContent>
             
               
@@ -55,7 +80,7 @@ export default function SearchPage(){
 
            
         </div> 
-        <div className="text-[25px] font-bold p-2 sm:px-8 md:hidden"> 100 reults for "{QQ}"</div>
+        <div className="text-[25px] font-bold p-2 sm:px-8 md:hidden"> 100 reults for "{}"</div>
     
         <div className="flex">
             <div>
@@ -65,7 +90,13 @@ export default function SearchPage(){
             {(toggelFilter==1) ? <SearchMenu /> : <div></div>}
             </div>
             
-              <SearchContent/>
+            {(data) ? <div>
+        {data.map((data,index)=>(<div> 
+                <SearchCourseCard data={data}/>
+                
+            </div>))}
+        
+            </div> : <div> no data  </div> }
               
         </div>
         <PaginationComponent/>

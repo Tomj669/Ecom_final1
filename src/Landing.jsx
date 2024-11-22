@@ -7,6 +7,7 @@ import Brands from './Brands'
 import LearnersViewing from './LearnersViewing'
 import SearchedCourse from './SearchedCourse'
 import Footer from './Footer'
+import Wishlist from './Wishlist'
 
 function Landing() {
 
@@ -17,7 +18,7 @@ function Landing() {
          <Cards/>
          <Brands/>
          <Reviews/> 
-         <LearnersViewing></LearnersViewing>
+       
          <SearchedCourse/>
   </div>
   

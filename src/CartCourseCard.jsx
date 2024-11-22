@@ -30,13 +30,13 @@ export default function CartCourseCard({data}){
 
                     <div className=" p-2 w-full     "> 
                                 <div className="flex justify-between">
-                                <div className="font-bold text-[20px]"> {data.courseName}</div>
+                                <div className="font-bold text-[20px]"> {data.title}</div>
                                 <div  className=" font-bold mr-2  ">  ${data.price}</div>
                  </div>
                                 
                                 
                                 
-                                <div className='flex text-base '> <div className="font-bold text-[14px] "> {data.rating} </div><ReviewStar  data={data.rating}/> </div>
+                                <div className='flex text-base '> <div className="font-bold text-[14px] "> {data.rating} </div><ReviewStar  data={1}/> </div>
                                 <div className='text-[12px] text-zinc-700'> {data.level} . <span> {data.lectures} Lectures</span></div>
                                 <div onClick={()=>{dispatch(Remove_cart(data)); console.log(data)}} className="text-blue-600 w-fit cursor-pointer"> Remove</div>
                         </div>
